@@ -1,7 +1,19 @@
 import Head from "next/head";
 import Image from "next/image";
+import { useEffect } from "react";
 
 export default function Home() {
+  if (typeof window !== "undefined") {
+    localStorage.setItem(
+      "token",
+      "90042c18ba8d8c0c5a2f1385681d99eac5b55a153c7c3eb08f7e29566e5ba545"
+    );
+  } else {
+    console.log("ndak bisa");
+  }
+  const config = {
+    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+  };
   return (
     <div className="container justify-center">
       <Head>
@@ -11,7 +23,7 @@ export default function Home() {
       </Head>
 
       <main className="flex justify-center">
-        <h2 className="text-green-400">this asep</h2>
+        <h2 className="text-green-400">{}</h2>
       </main>
 
       <footer>
